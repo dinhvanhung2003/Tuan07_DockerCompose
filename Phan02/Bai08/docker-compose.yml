@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql_container
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: myuser            
+      MYSQL_PASSWORD: mypassword
+    ports:
+      - "3306:3306"
+
+
+  nodeapp:
+    build: .
+    container_name: node_container
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
