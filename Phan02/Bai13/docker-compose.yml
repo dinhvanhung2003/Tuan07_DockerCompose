@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  react-app:
+    build: .
+    ports:
+      - "8084:80"
+    container_name: react_nginx_app
